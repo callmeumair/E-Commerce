@@ -1,2 +1,2 @@
 # E-Commerce
-his project is a full-stack e-commerce platform designed to showcase my skills as a Full Stack Web Developer. It includes user authentication, product management, and a seamless shopping experience. 
+The application is built using modern technologies, including React.js for the frontend, Node.js and Express.js for the backend, and MongoDB for the database. User authentication is implemented using JSON Web Tokens (JWT) to ensure secure access.
