@@ -35,7 +35,7 @@ const Home = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        <Container>
+        <Container className="py-5">
           <motion.h1 
             className="display-3 fw-bold mb-4"
             initial={{ y: -50 }}
@@ -89,32 +89,41 @@ const Home = () => {
                 animate="visible"
                 variants={fadeIn}
                 transition={{ delay: index * 0.2 }}
+                className="feature-section py-4"
               >
-                <Card className="feature-card h-100 border-0">
-                  <Card.Body className="d-flex flex-column align-items-center text-center p-4">
-                    <div 
-                      className="feature-icon-wrapper mb-4"
-                      style={{
-                        background: 'rgba(255, 255, 255, 0.1)',
-                        padding: "1.5rem",
-                        borderRadius: "50%",
-                        width: "80px",
-                        height: "80px",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center"
-                      }}
-                    >
-                      <i className={`bi bi-${feature.icon} fs-1 text-white`}></i>
-                    </div>
-                    <Card.Title className="h3 mb-3 text-white">
-                      {feature.title}
-                    </Card.Title>
-                    <Card.Text className="text-light fs-5 mb-4">
-                      {feature.description}
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
+                <div className="text-center">
+                  <div 
+                    className="feature-icon-wrapper mb-4 mx-auto"
+                    style={{
+                      background: 'rgba(255, 255, 255, 0.1)',
+                      padding: "1.5rem",
+                      borderRadius: "50%",
+                      width: "100px",
+                      height: "100px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center"
+                    }}
+                  >
+                    <i className={`bi bi-${feature.icon} display-4 text-white`}></i>
+                  </div>
+                  <motion.h2 
+                    className="display-6 fw-bold mb-4 text-white"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.3 + index * 0.2 }}
+                  >
+                    {feature.title}
+                  </motion.h2>
+                  <motion.p 
+                    className="lead fs-4 text-light mb-4"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.4 + index * 0.2 }}
+                  >
+                    {feature.description}
+                  </motion.p>
+                </div>
               </motion.div>
             </Col>
           ))}
