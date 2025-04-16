@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   const fadeIn = {
@@ -8,15 +9,26 @@ const Home = () => {
     visible: { opacity: 1, y: 0 }
   };
 
-  const staggerContainer = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2
-      }
+  const features = [
+    {
+      icon: "shield-lock",
+      title: "Decentralized Security",
+      description: "Built on Ethereum blockchain, ensuring transparency and security in every transaction. No middlemen, no hidden fees, just pure peer-to-peer commerce.",
+      color: "#4CAF50"
+    },
+    {
+      icon: "cash-coin",
+      title: "Smart Payments",
+      description: "Smart contracts handle all transactions, eliminating the need for intermediaries. Instant settlements and automated escrow ensure safe and efficient trading.",
+      color: "#2196F3"
+    },
+    {
+      icon: "eye",
+      title: "Complete Transparency",
+      description: "All transactions and product information are stored on the blockchain, visible to everyone. Track your orders in real-time with immutable records.",
+      color: "#9C27B0"
     }
-  };
+  ];
 
   return (
     <div className="home-page">
@@ -28,7 +40,7 @@ const Home = () => {
       >
         <Container>
           <motion.h1 
-            className="display-4 fw-bold"
+            className="display-4 fw-bold mb-4"
             initial={{ y: -50 }}
             animate={{ y: 0 }}
             transition={{ type: "spring", stiffness: 100 }}
@@ -36,7 +48,7 @@ const Home = () => {
             Welcome to Ecom
           </motion.h1>
           <motion.p 
-            className="lead mb-4 text-light"
+            className="lead mb-4 text-light fs-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
@@ -47,12 +59,23 @@ const Home = () => {
             initial={{ scale: 0.8 }}
             animate={{ scale: 1 }}
             transition={{ delay: 0.8 }}
+            className="d-flex gap-3"
           >
-            <Button variant="primary" size="lg" className="me-3">
+            <Button 
+              as={Link} 
+              to="/products" 
+              variant="primary" 
+              size="lg"
+              className="px-4 py-3 fw-semibold"
+            >
               <i className="bi bi-box-seam me-2"></i>
               Explore Products
             </Button>
-            <Button variant="outline-light" size="lg">
+            <Button 
+              variant="outline-light" 
+              size="lg"
+              className="px-4 py-3 fw-semibold"
+            >
               <i className="bi bi-info-circle me-2"></i>
               Learn More
             </Button>
@@ -61,62 +84,50 @@ const Home = () => {
       </motion.div>
 
       <Container className="py-5">
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          animate="visible"
-        >
-          <Row>
-            <Col md={4}>
-              <motion.div variants={fadeIn}>
-                <Card className="feature-card h-100">
-                  <Card.Body>
-                    <div className="feature-icon mb-3">
-                      <i className="bi bi-shield-lock fs-1"></i>
+        <Row className="g-4">
+          {features.map((feature, index) => (
+            <Col md={4} key={index}>
+              <motion.div
+                initial="hidden"
+                animate="visible"
+                variants={fadeIn}
+                transition={{ delay: index * 0.2 }}
+              >
+                <Card className="feature-card h-100 border-0">
+                  <Card.Body className="d-flex flex-column align-items-center text-center p-4">
+                    <div 
+                      className="feature-icon-wrapper mb-4"
+                      style={{
+                        background: `${feature.color}22`,
+                        padding: "1.5rem",
+                        borderRadius: "50%",
+                        width: "80px",
+                        height: "80px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center"
+                      }}
+                    >
+                      <i 
+                        className={`bi bi-${feature.icon} fs-1`}
+                        style={{ color: feature.color }}
+                      ></i>
                     </div>
-                    <Card.Title className="h4">Decentralized Security</Card.Title>
-                    <Card.Text className="text-light">
-                      Built on Ethereum blockchain, ensuring transparency and security in every transaction. 
-                      No middlemen, no hidden fees, just pure peer-to-peer commerce.
+                    <Card.Title 
+                      className="h3 mb-3"
+                      style={{ color: feature.color }}
+                    >
+                      {feature.title}
+                    </Card.Title>
+                    <Card.Text className="text-light fs-5 mb-4">
+                      {feature.description}
                     </Card.Text>
                   </Card.Body>
                 </Card>
               </motion.div>
             </Col>
-            <Col md={4}>
-              <motion.div variants={fadeIn}>
-                <Card className="feature-card h-100">
-                  <Card.Body>
-                    <div className="feature-icon mb-3">
-                      <i className="bi bi-cash-coin fs-1"></i>
-                    </div>
-                    <Card.Title className="h4">Smart Payments</Card.Title>
-                    <Card.Text className="text-light">
-                      Smart contracts handle all transactions, eliminating the need for intermediaries.
-                      Instant settlements and automated escrow ensure safe and efficient trading.
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
-              </motion.div>
-            </Col>
-            <Col md={4}>
-              <motion.div variants={fadeIn}>
-                <Card className="feature-card h-100">
-                  <Card.Body>
-                    <div className="feature-icon mb-3">
-                      <i className="bi bi-eye fs-1"></i>
-                    </div>
-                    <Card.Title className="h4">Complete Transparency</Card.Title>
-                    <Card.Text className="text-light">
-                      All transactions and product information are stored on the blockchain, 
-                      visible to everyone. Track your orders in real-time with immutable records.
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
-              </motion.div>
-            </Col>
-          </Row>
-        </motion.div>
+          ))}
+        </Row>
       </Container>
 
       <motion.div 
@@ -125,10 +136,16 @@ const Home = () => {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
       >
-        <Container className="text-center">
-          <h2 className="mb-4">Ready to Experience the Future of E-Commerce?</h2>
-          <p className="lead mb-4 text-light">Join thousands of users already trading on our decentralized platform</p>
-          <Button variant="primary" size="lg">
+        <Container className="text-center py-5">
+          <h2 className="display-5 mb-4">Ready to Experience the Future of E-Commerce?</h2>
+          <p className="lead mb-4 text-light fs-4">Join thousands of users already trading on our decentralized platform</p>
+          <Button 
+            as={Link}
+            to="/products"
+            variant="primary" 
+            size="lg"
+            className="px-5 py-3 fw-semibold"
+          >
             <i className="bi bi-rocket me-2"></i>
             Get Started
           </Button>
