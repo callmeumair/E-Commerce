@@ -1,6 +1,6 @@
-# ETHEReact - Decentralized E-Commerce Platform
+# Ecom - Decentralized E-Commerce Platform
 
-ETHEReact is a full-stack decentralized e-commerce application built on the Ethereum blockchain. It demonstrates how to create a decentralized marketplace without relying on traditional databases.
+Ecom is a full-stack decentralized e-commerce application built on the Ethereum blockchain. It demonstrates how to create a decentralized marketplace without relying on traditional databases.
 
 ## Features
 

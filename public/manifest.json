@@ -1,6 +1,6 @@
 {
-  "short_name": "ETHEReact",
-  "name": "ETHEReact - Decentralized E-Commerce",
+  "short_name": "Ecom",
+  "name": "Ecom - Decentralized E-Commerce",
   "icons": [
     {
       "src": "favicon.ico",
@@ -21,5 +21,5 @@
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#000000"
 } 
