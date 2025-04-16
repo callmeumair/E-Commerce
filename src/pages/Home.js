@@ -13,20 +13,17 @@ const Home = () => {
     {
       icon: "shield-lock",
       title: "Decentralized Security",
-      description: "Built on Ethereum blockchain, ensuring transparency and security in every transaction. No middlemen, no hidden fees, just pure peer-to-peer commerce.",
-      color: "#4CAF50"
+      description: "Built on Ethereum blockchain, ensuring transparency and security in every transaction. No middlemen, no hidden fees, just pure peer-to-peer commerce."
     },
     {
       icon: "cash-coin",
       title: "Smart Payments",
-      description: "Smart contracts handle all transactions, eliminating the need for intermediaries. Instant settlements and automated escrow ensure safe and efficient trading.",
-      color: "#2196F3"
+      description: "Smart contracts handle all transactions, eliminating the need for intermediaries. Instant settlements and automated escrow ensure safe and efficient trading."
     },
     {
       icon: "eye",
       title: "Complete Transparency",
-      description: "All transactions and product information are stored on the blockchain, visible to everyone. Track your orders in real-time with immutable records.",
-      color: "#9C27B0"
+      description: "All transactions and product information are stored on the blockchain, visible to everyone. Track your orders in real-time with immutable records."
     }
   ];
 
@@ -40,7 +37,7 @@ const Home = () => {
       >
         <Container>
           <motion.h1 
-            className="display-4 fw-bold mb-4"
+            className="display-3 fw-bold mb-4"
             initial={{ y: -50 }}
             animate={{ y: 0 }}
             transition={{ type: "spring", stiffness: 100 }}
@@ -48,7 +45,7 @@ const Home = () => {
             Welcome to Ecom
           </motion.h1>
           <motion.p 
-            className="lead mb-4 text-light fs-4"
+            className="lead mb-4 text-light fs-3"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
@@ -64,7 +61,7 @@ const Home = () => {
             <Button 
               as={Link} 
               to="/products" 
-              variant="primary" 
+              variant="light" 
               size="lg"
               className="px-4 py-3 fw-semibold"
             >
@@ -98,7 +95,7 @@ const Home = () => {
                     <div 
                       className="feature-icon-wrapper mb-4"
                       style={{
-                        background: `${feature.color}22`,
+                        background: 'rgba(255, 255, 255, 0.1)',
                         padding: "1.5rem",
                         borderRadius: "50%",
                         width: "80px",
@@ -108,15 +105,9 @@ const Home = () => {
                         justifyContent: "center"
                       }}
                     >
-                      <i 
-                        className={`bi bi-${feature.icon} fs-1`}
-                        style={{ color: feature.color }}
-                      ></i>
+                      <i className={`bi bi-${feature.icon} fs-1 text-white`}></i>
                     </div>
-                    <Card.Title 
-                      className="h3 mb-3"
-                      style={{ color: feature.color }}
-                    >
+                    <Card.Title className="h3 mb-3 text-white">
                       {feature.title}
                     </Card.Title>
                     <Card.Text className="text-light fs-5 mb-4">
@@ -137,12 +128,12 @@ const Home = () => {
         viewport={{ once: true }}
       >
         <Container className="text-center py-5">
-          <h2 className="display-5 mb-4">Ready to Experience the Future of E-Commerce?</h2>
+          <h2 className="display-5 mb-4 text-white">Ready to Experience the Future of E-Commerce?</h2>
           <p className="lead mb-4 text-light fs-4">Join thousands of users already trading on our decentralized platform</p>
           <Button 
             as={Link}
             to="/products"
-            variant="primary" 
+            variant="light" 
             size="lg"
             className="px-5 py-3 fw-semibold"
           >
