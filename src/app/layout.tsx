@@ -9,6 +9,7 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://ecom-web3.vercel.app'),
   title: {
     default: 'Ecom - Modern E-Commerce Platform',
     template: '%s | Ecom'
